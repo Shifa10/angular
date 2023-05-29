@@ -1,0 +1,55 @@
+App.component.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1> login form</h1>
+
+<input type="text" #name placeholder="enter your Name" name="Name"> <br>
+<input type="text" #address placeholder="enter your Address" name="Adresss"> <br>
+<input type="text" #contact placeholder="enter your Contact" name="Contact"> <br>
+<input type="email" #email placeholder="enter your Email" name="Email"> <br>
+<input type="password" #password placeholder="enter your Name" name="password"> <br>
+
+<button (click)= "getValue(name.value,address.value,contact.value,email.value)"> Register</button>
+
+<h1>your register data</h1>
+<p>Name:{{displayname}}</p>
+<p>Address:{{displayaddress}}</p>
+<p>Contact:{{displaycontact}}</p>
+
+<p>Email:{{displayemail}}</p>
+
+</body>
+</html>
+
+App.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Registration form';
+
+  displayname='';
+  displayaddress=''
+  displaycontact='';
+  displayemail='';
+
+  getValue(name:string,address:string,contact:string,email:string){
+    this.displayname=name;
+    this.displayaddress=address;
+    this.displaycontact=contact;
+    this.displayemail=email;
+    
+  }
+}
